@@ -42,7 +42,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     
     const form = this;
     const formData = new FormData(form);
-    const messageDiv = document.getElementById('form-message');
     const submitButton = form.querySelector('button[type="submit"]');
     
     // Get form values
@@ -72,43 +71,39 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     try {
         // Submit to Formspree with AJAX
         // Using Accept: application/json header tells Formspree to return JSON instead of redirecting
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
+        const payload = new FormData();
+        payload.append('name', name);
+        payload.append('email', email);
         if (phone) {
-            formData.append('phone', phone);
+            payload.append('phone', phone);
         }
-        formData.append('message', message);
+        payload.append('message', message);
         
         const response = await fetch('https://formspree.io/f/myzlywnw', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json'
             },
-            body: formData
+            body: payload
         });
         
         const responseData = await response.json();
         
         if (response.ok) {
-            // Formspree returns JSON with success indicator
             showMessage('Thank you for your message! We\'ll get back to you soon.', 'success');
             form.reset();
         } else {
-            // Handle validation errors from Formspree
             const errorMsg = responseData.error || 
-                           (responseData.errors && responseData.errors.map(e => e.message).join(', ')) || 
+                           (responseData.errors && responseData.errors.map(err => err.message).join(', ')) || 
                            'Form submission failed. Please try again.';
             throw new Error(errorMsg);
         }
     } catch (error) {
         console.error('Form submission error:', error);
-        // Check if it's a network error or Formspree error
-        if (error.message && error.message !== 'Failed to fetch') {
-            showMessage(error.message, 'error');
-        } else {
-            showMessage('Something went wrong. Please check your connection and try again.', 'error');
-        }
+        const fallbackMessage = error.message && error.message !== 'Failed to fetch'
+            ? error.message
+            : 'Something went wrong. Please check your connection and try again.';
+        showMessage(fallbackMessage, 'error');
     } finally {
         // Re-enable submit button
         submitButton.disabled = false;

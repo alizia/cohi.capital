@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
                         <span class="gradient-text">Delivering savings.</span>
                     </h1>
                     <p class="hero-description">
-                        Using advanced data science and machine learning, we analyze residential and commercial buildings to pinpoint energy waste. Our technology identifies inefficiencies others miss, then delivers actionable solutions that reduce utility costs and environmental impact; turning data into measurable savings.
+                        Using data science and machine learning, we analyze residential and commercial buildings to pinpoint energy waste. We identify inefficiencies others miss, then deliver actionable solutions that reduce utility costs and environmental impact; turning data into measurable savings, for you and the planet.
                     </p>
                     <div class="hero-cta">
                         <a href="#contact" class="btn btn-primary">
@@ -90,30 +91,40 @@
         <!-- About Section -->
         <section class="about" id="about">
             <div class="container">
-                <div class="about-content">
+                <div class="about-body">
                     <div class="about-text">
                         <h2 class="section-title">Transform Insights into Savings</h2>
                         <p>Our platform converts complex energy data into clear, actionable recommendations. Every suggestion is backed by rigorous analysis, ensuring upgrades deliver real reductions in utility costs while improving building efficiency.</p>
-                        <p>We combine machine learning algorithms with deep industry expertise to identify opportunities that traditional audits miss. The result: measurable savings, reduced waste, and buildings that perform better.</p>
-                        <div class="about-stats">
-                            <div class="stat">
-                                <div class="stat-value">100%</div>
-                                <div class="stat-label">Data-Driven</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">24/7</div>
-                                <div class="stat-label">Monitoring</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">Real</div>
-                                <div class="stat-label">Results</div>
-                            </div>
-                        </div>
+                        <p>We combine machine learning algorithms with industry expertise to identify opportunities that traditional audits miss. The result: measurable savings, reduced waste, and buildings that perform better.</p>
                     </div>
-                    <div class="about-image">
-                        <div class="image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="Energy efficiency technology">
-                        </div>
+                    <div class="about-insights">
+                        <article class="insight-card">
+                            <div class="insight-meta">
+                                <span class="insight-region">United States</span>
+                                <span class="insight-source">EPA ENERGY STAR</span>
+                            </div>
+                            <div class="insight-value">30%</div>
+                            <h3 class="insight-title">Commercial energy is wasted</h3>
+                            <p class="insight-description">Typical U.S. offices, schools, and retail buildings discard nearly a third of the energy they buy because of poor scheduling, drifting setpoints, and unmaintained equipment.</p>
+                        </article>
+                        <article class="insight-card">
+                            <div class="insight-meta">
+                                <span class="insight-region">California</span>
+                                <span class="insight-source">NRDC · PG&E</span>
+                            </div>
+                            <div class="insight-value">23%</div>
+                            <h3 class="insight-title">“Off” devices still drawing load</h3>
+                            <p class="insight-description">Fieldwork across Bay Area homes found almost one-quarter of residential electricity is spent on idle electronics, chargers, and always-on appliances.</p>
+                        </article>
+                        <article class="insight-card">
+                            <div class="insight-meta">
+                                <span class="insight-region">Nationwide</span>
+                                <span class="insight-source">U.S. DOE</span>
+                            </div>
+                            <div class="insight-value">20%</div>
+                            <h3 class="insight-title">HVAC energy lost in ducts</h3>
+                            <p class="insight-description">Leaky or unbalanced ductwork typically lets one-fifth of heating and cooling energy escape before it reaches the rooms people occupy.</p>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -142,7 +153,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your energy efficiency needs..." required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your energy efficiency needs..." style="resize: none;" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">
                             <span>Send Message</span>
