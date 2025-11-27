@@ -10,15 +10,11 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Reddit Pixel -->
-    <script>
-    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
-    // Initialize pixel - it will queue commands until pixel.js loads
-    rdt('init','a2_i2p2iw6fy3ri');
-    rdt('track', 'PageVisit');
-    </script>
-    <!-- DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER -->
-    <!-- End Reddit Pixel -->
+    <!-- Configuration (loads secrets from config.js - not in repo) -->
+    <script src="config.js"></script>
+    
+    <!-- Reddit Pixel Tracking -->
+    <script src="reddit-pixel.js"></script>
     
     <script>
         // Prevent Chrome's default smooth scroll for hash navigation
@@ -194,7 +190,7 @@
                             <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone Number <span style="color: var(--text-tertiary); font-weight: normal;">(optional)</span></label>
                             <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
                         </div>
                         <div class="form-group">
